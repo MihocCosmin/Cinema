@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core">
+<body>
+	<div
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">Rezervari cinema</div>
+	<h:form id="formFilmForm">
+		<h:panelGrid columns="3" id="p1" border="1">
+			<p:facet name="header">
+				<h:outputText id="o1" value="Formular: Filme"></h:outputText>
+			</p:facet>
+			
+			<h:selectOneMenu id="cboFilme" value="#{formFilm.idFilm}" style="width: 194px; ">
+              	<p:selectItems id = "s1" value="#{formFilm.filme}" var = "item" itemValue = "#{item.id}" itemLabel = "#{item.titlu}"></p:selectItems>
+				<p:ajax render="film_id film_titlu film_descriere film_durata"></p:ajax>
+			</h:selectOneMenu>
+			<h:panelGrid border="1" columns="2" id="p2" style="width: 31px; ">
+				<h:commandButton id="cmdPrev" value="Prev" actionListener="#{formFilm.prevFilm}"></h:commandButton>
+				<h:commandButton id="cmdNext" value="Next" actionListener="#{formFilm.nextFilm}"></h:commandButton>
+			</h:panelGrid>
+
+			<h:message id="m5"></h:message>
+			<h:outputText id="o2" value="ID Film:"></h:outputText>
+			<h:inputText id="film_id" value="#{formFilm.film.id}"></h:inputText>
+			<h:message for="film_id" id="m1"></h:message>
+			<h:outputText id="o3" value="Titlu film:"></h:outputText>
+			<h:inputText id="film_titlu" value="#{formFilm.film.titlu}"></h:inputText>
+			<h:message for="film_titlu" id="m2"></h:message>
+			<h:outputText id="o4" value="Descriere:"></h:outputText>
+			<h:inputText id="film_descriere" value="#{formFilm.film.descriere}"></h:inputText>
+			<h:message for="film_descriere" id="m3"></h:message>
+			<h:outputText id="o5" value="Durata:"></h:outputText>
+			<h:inputText id="film_durata" value="#{formFilm.film.durata}"></h:inputText>
+			<h:message for="film_durata" id="m4"></h:message>
+			<h:panelGrid border="1" columns="2" id="p3">
+				<h:commandButton actionListener="#{formFilm.adaugaFilm}"
+					id="cmdAdauga" value="Adauga"></h:commandButton>
+				<h:commandButton actionListener="#{formFilm.stergereFilm}"
+					id="cmdStergere" value="Stergere"></h:commandButton>
+
+			</h:panelGrid>
+			<h:panelGrid border="1" columns="2" id="p4">
+				<h:commandButton actionListener="#{formFilm.abandonFilm}"
+					id="cmdAbandon" value="Abandon"></h:commandButton>
+				<h:commandButton actionListener="#{formFilm.salvareFilm}"
+					id="cmdSalvare" value="Salvare"></h:commandButton>
+			</h:panelGrid>
+			<h:message id="m6"></h:message>
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>

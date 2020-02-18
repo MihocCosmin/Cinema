@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core">
+<body>
+	<div
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">Rezervari cinema</div>
+	<h:form id="formSaliForm">
+		<h:panelGrid columns="3" id="p1" border="1">
+			<p:facet name="header">
+				<h:outputText id="o1" value="Formular: Sali si locuri"></h:outputText>
+			</p:facet>
+			<h:outputText id="o7" value="Navigare"></h:outputText>
+			
+			<h:panelGrid border="1" columns="2" id="p2">
+				<h:commandButton actionListener="#{formSali.prevSala}" id="btnPrev"
+					value="Prev"></h:commandButton>
+				<h:commandButton actionListener="#{formSali.nextSala}" id="btnNext"
+					value="Next"></h:commandButton>
+			</h:panelGrid>
+			<h:message id="m3"></h:message>
+			<h:outputText id="o2" value="Id:"></h:outputText>
+			<h:inputText id="sala_id" value="#{formSali.sala.id}"></h:inputText>
+			<h:message for="sala_id" id="m1"></h:message>
+			<h:outputText id="o3" value="Nr Locuri:"></h:outputText>
+			<h:inputText id="sala_nrLocuri" value="#{formSali.sala.nrLocuri}"></h:inputText>
+			<h:message for="sala_nrLocuri" id="m2"></h:message>
+		</h:panelGrid><h:commandButton id="cmdAdaugaSala" value="Adaugare Sala" actionListener="#{formSali.adaugareSala}"></h:commandButton>
+		<h:commandButton id="cmdStergereSala" value="Stergere Sala" actionListener="#{formSali.stergereSala}"></h:commandButton>
+		<h:commandButton id="cmdSalvare" value="Salvare" actionListener="#{formSali.salvareSala}"></h:commandButton>
+		<h:commandButton id="cmdAbandon" value="Abandon" actionListener="#{formSali.abandon}"></h:commandButton>
+		<h:dataTable border="1" var="linieLoc" id="d1"
+			value="#{formSali.sala.locuri}">
+			<h:column id="c1">
+				<p:facet name="header">
+					<h:outputText id="o4" value="Id loc"></h:outputText>
+				</p:facet>
+				<h:inputText id="i1" value="#{linieLoc.id}"></h:inputText>
+				
+			</h:column>
+			<h:column id="c2">
+				<p:facet name="header">
+					<h:outputText id="o5" value="Rand"></h:outputText>
+				</p:facet>
+				
+				<h:inputText id="txtRand" value="#{linieLoc.rand}"></h:inputText>
+			</h:column>
+			<h:column id="c3">
+				<p:facet name="header">
+					<h:outputText id="o6" value="Numar"></h:outputText>
+				</p:facet>
+				<h:inputText id="txtNumar" value="#{linieLoc.numar}"></h:inputText>
+				
+			</h:column>
+			<h:column>
+				<h:commandButton id="cmdStergeLoc" value="Sterge" actionListener="#{formSali.stergeLoc}"><p:attribute name="selectedId" value="#{linieLoc.id}"></p:attribute></h:commandButton>
+				<p:facet name="header">
+					<h:outputText value="Sterge"></h:outputText>
+				</p:facet>
+			</h:column>
+		</h:dataTable>
+		<h:commandButton id="btnAdaugaLoc"
+			actionListener="#{formSali.adaugaLoc}" value="Adauga loc"></h:commandButton>
+		
+
+
+
+		</h:form>
+	
+</body>
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core">
+<body>
+	<div
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">Rezervari cinema</div>
+	<h:form id="formTipuriForm">
+		<h:panelGrid columns="3" id="p1" border="1">
+			<p:facet name="header">
+				<h:outputText id="o1" value="Formular: Tipuri de rezervari"></h:outputText>
+			</p:facet>
+			<h:outputText id="o9" value="Navigare"></h:outputText>
+			
+			
+			<h:panelGrid border="1" columns="2" id="p2">
+				<h:commandButton actionListener="#{formTipuri.prev}" id="btnPrev"
+					value="Prev"></h:commandButton>
+				<h:commandButton actionListener="#{formTipuri.next}" id="btnNext"
+					value="Next"></h:commandButton>
+			</h:panelGrid>
+			<h:message id="m3"></h:message>
+			<h:outputText id="o3" value="Id:"></h:outputText><h:inputText id="tip_id" value="#{formTipuri.tip.id}"></h:inputText><h:message for="tip_tip" id="m1"></h:message>
+			<h:outputText id="o2" value="Tip:"></h:outputText>
+			<h:inputText id="tip_tip" value="#{formTipuri.tip.tip}"></h:inputText>
+			
+			
+			<h:message for="tip_id" id="m2"></h:message>
+		</h:panelGrid>
+		<h:commandButton actionListener="#{formTipuri.adaugare}" id="btnAdd"
+			value="Adauga tip"></h:commandButton>
+		<h:commandButton actionListener="#{formTipuri.stergere}" id="btnDel"
+			value="Stergere tip"></h:commandButton>
+		<h:commandButton id="btnUpd" value="Salveaza" actionListener="#{formTipuri.salvare}"></h:commandButton>
+		<h:commandButton actionListener="#{formTipuri.abandon}" id="btnAba"
+			value="Abandon"></h:commandButton>
+		<h:dataTable border="1" var="linieR" id="d1"
+			value="#{formTipuri.tip.rezervari}" cellpadding="0" cellspacing="0" rows="0" width="0" style="width: 648px; height: 100px; ">
+			<h:column id="c1">
+				<p:facet name="header">
+					<h:outputText id="o4" value="Id rezervare"></h:outputText>
+				</p:facet>
+				<h:inputText id="i4" value="#{linieR.id}"></h:inputText>
+				
+			</h:column>
+			<h:column id="c2">
+				<p:facet name="header">
+					<h:outputText id="o5" value="Tip"></h:outputText>
+				</p:facet>
+				<h:inputText id="i1" value="#{linieR.tip.tip}"></h:inputText>
+				
+			</h:column>
+			<h:column id="c3">
+				<p:facet name="header">
+					<h:outputText id="o6" value="Titlu"></h:outputText>
+				</p:facet>
+				<h:inputText id="i2" value="#{linieR.ecranizare.film.titlu}"
+					readonly="true"></h:inputText>
+
+				</h:column>
+			<h:column id="c4">
+				<p:facet name="header">
+					<h:outputText id="o7" value="Id Loc Rezervat"></h:outputText>
+				</p:facet>
+				<h:inputText id="i3" value="#{linieR.locRezervat.id}"
+					readonly="true"></h:inputText>
+
+				</h:column>
+			<h:column>
+				<h:commandButton id="btnStergeRezervari" value="Sterge" actionListener="#{formTipuri.stergeR}"><p:attribute name="selectedId" value="#{linieR.id}"></p:attribute></h:commandButton>
+				<p:facet name="header">
+					<h:outputText value="Sterge"></h:outputText>
+				</p:facet>
+			</h:column>
+		</h:dataTable>
+		<h:commandButton actionListener="#{formTipuri.adaugaR}"
+			id="btnAdaugaRezervare" value="Adauga rezervare"></h:commandButton>
+
+
+
+
+
+
+	</h:form>
+	
+</body>
+</html>

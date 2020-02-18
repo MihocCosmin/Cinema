@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core">
+<body>
+	<div
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">Rezervari cinema</div>
+	<h:form id="formRezervareOnlineForm">
+		<h:panelGrid columns="3" id="p1" border="1">
+			<p:facet name="header">
+				<h:outputText id="o1" value="Formular: Rezervari online"></h:outputText>
+			</p:facet>
+			<h:outputLabel id="o9" value="Navigare"></h:outputLabel>
+			<h:panelGrid border="1" columns="2" id="p2">
+				<h:commandButton actionListener="#{formRezervareOnline.prev}"
+					id="btnPrev" value="Previous"></h:commandButton>
+				<h:commandButton id="btnNext" value="Next" actionListener="#{formRezervareOnline.next}"></h:commandButton>
+			</h:panelGrid>
+			<h:message id="m8"></h:message>
+			<h:outputText id="o2" value="Id:"></h:outputText>
+			<h:inputText id="rezervareOnline_id"
+				value="#{formRezervareOnline.rezervareOnline.id}"></h:inputText>
+			<h:message for="rezervareOnline_id" id="m1"></h:message>
+			<h:outputText id="o3" value="Tip:"></h:outputText>
+			<h:inputText id="i1"
+				value="#{formRezervareOnline.rezervareOnline.tip.id}"
+				readonly="false"></h:inputText>
+
+
+			<h:message for="rezervareOnline_tip" id="m2"></h:message>
+			<h:outputText id="o4" value="Nume:"></h:outputText>
+			<h:inputText id="rezervareOnline_nume"
+				value="#{formRezervareOnline.rezervareOnline.nume}"></h:inputText>
+			<h:message for="rezervareOnline_nume" id="m3"></h:message>
+			<h:outputText id="o5" value="Ecranizare:"></h:outputText>
+
+
+
+			<h:inputText id="i2"
+				value="#{formRezervareOnline.rezervareOnline.ecranizare.id}"></h:inputText>
+			<h:message for="rezervareOnline_ecranizare" id="m4"></h:message>
+			
+			
+			
+			<h:outputText id="o7" value="Pret:"></h:outputText>
+			<h:inputText id="rezervareOnline_pret"
+				value="#{formRezervareOnline.rezervareOnline.pret}"></h:inputText>
+			<h:message for="rezervareOnline_pret" id="m6"></h:message>
+			<h:outputText id="o8" value="Discount Online:"></h:outputText>
+			<h:inputText id="rezervareOnline_discountOnline"
+				value="#{formRezervareOnline.rezervareOnline.discountOnline}"
+				readonly="true"></h:inputText>
+			<h:message for="rezervareOnline_discountOnline" id="m7"></h:message>
+			<h:panelGrid border="1" columns="2" id="p3">
+				<h:commandButton actionListener="#{formRezervareOnline.adaugaRo}"
+					id="btnAdaugaRo" value="Adauga"></h:commandButton>
+				<h:commandButton actionListener="#{formRezervareOnline.stergereRo}"
+					id="btnStergere" value="Sterge"></h:commandButton>
+			</h:panelGrid>
+			<h:panelGrid border="1" columns="2" id="p4">
+				<h:commandButton actionListener="#{formRezervareOnline.abandonRo}"
+					id="btnAbandonRo" value="Abandon"></h:commandButton><h:commandButton actionListener="#{formRezervareOnline.salvareRo}" id="btnSalvareRo" value="Salvare"></h:commandButton>
+			</h:panelGrid>
+			
+			<h:message id="m9"></h:message>
+		</h:panelGrid>
+		
+	</h:form>
+</body>
+</html>
